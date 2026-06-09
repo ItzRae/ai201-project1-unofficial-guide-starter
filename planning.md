@@ -11,6 +11,8 @@
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
 
+The domain for this project is an unofficial Amherst College student survival guide that combines information about academics, dining, campus life, student experiences, and social culture. While Amherst provides extensive official resources, many practical questions students have—such as what campus life is really like, how students feel about dining options, or how to navigate social and academic challenges—are answered through scattered blogs, student discussions, and community forums. This brings together those perspectives into a searchable knowledge base that reflects both institutional information and authentic student experiences.
+
 ---
 
 ## Documents
@@ -20,16 +22,16 @@
 
 | # | Source | Description | URL or location |
 |---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | Amherst Student Blog | Survival Guide for First Years | https://amherststudent.com/article/the-first-years-survival-guide/ | 
+| 2 | Reddit | Reddit thread of student life | https://www.reddit.com/r/amherstcollege/comments/1r2pfbm/amherst_student_life/ |
+| 3 | Official Amherst College website | Information about AC Dining | https://www.amherst.edu/campuslife/housing-dining/dining/about-ac-dining/meal_plans_2025-2026 |
+| 4 | Blog | Blog article of an AC guide | https://www.collegekidguide.com/home-1/blog-post-title-three-9c5lk |
+| 5 | Official AC Website | FAQ of Dining Plans/Info | https://www.amherst.edu/campuslife/housing-dining/dining/about-ac-dining/faq |
+| 6 | Official AC Website | Academic information | https://www.amherst.edu/academiclife/support |
+| 7 | Official AC Website | Campus Life information | https://www.amherst.edu/campuslife |
+| 8 | Niche polls site | Student Polls about campus life | https://www.niche.com/colleges/amherst-college/campus-life/ |
+| 9 | Amherst Student blog | About community/social life in AC | https://amherststudent.com/article/the-anguish-of-amherst-college-students/ |
+| 10 | Bigfuture College Site | Student and campus details about AC | https://bigfuture.collegeboard.org/colleges/amherst-college/campus-life |
 
 ---
 

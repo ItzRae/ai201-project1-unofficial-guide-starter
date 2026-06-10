@@ -43,12 +43,18 @@ The domain for this project is an unofficial Amherst College student survival gu
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
 **Chunk size:**
+
 600–800 characters
+
 **Overlap:**
+
 around 100 characters
+
 **Reasoning:**
-The chunks makes sense because many of my sources are medium-length web pages, blog posts, FAQs, and student comments. The chunks should be large enough to preserve context such as a full FAQ answer, but small enough that retrieval can return focused evidence.
+
+The chunks makes sense because many of my sources are medium-length web pages, blog posts, FAQs, and student comments. The chunks should be large enough to preserve context like a full FAQ answer, but small enough that retrieval can return focused evidence.
 The overlap is useful because some important details may appear across paragraph boundaries especially in guides/FAQ pages.
+
 ---
 
 ## Retrieval Approach
@@ -60,11 +66,17 @@ The overlap is useful because some important details may appear across paragraph
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
+
 all-MiniLM-L6-v2 from sentence-transformers
+
 **Top-k:**
+
 4
+
 **Production tradeoff reflection:**
-I would consider using a larger + higher-accuracy embedding model if cost was not a constraint. I would weigh tradeoffs such as longer context length, better handling of informal student language, stronger performance on domain-specific campus terms, multilingual support, latency, and infrastructure cost. A larger model might improve retrieval quality, but it could also make the system slower and more expensive to run.
+
+I would consider using a larger + higher-accuracy embedding model if cost was not a constraint. I would weigh tradeoffs such as longer context length, better handling of informal student language, and perhaps a stronger performance on domain-specific campus terms. A larger model might improve retrieval quality, but it could also make the system slower and more expensive to run.
+
 ---
 
 ## Evaluation Plan

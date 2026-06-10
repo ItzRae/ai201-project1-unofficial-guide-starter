@@ -43,11 +43,12 @@ The domain for this project is an unofficial Amherst College student survival gu
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
 **Chunk size:**
-
+600–800 characters
 **Overlap:**
-
+around 100 characters
 **Reasoning:**
-
+The chunks makes sense because many of my sources are medium-length web pages, blog posts, FAQs, and student comments. The chunks should be large enough to preserve context such as a full FAQ answer, but small enough that retrieval can return focused evidence.
+The overlap is useful because some important details may appear across paragraph boundaries especially in guides/FAQ pages.
 ---
 
 ## Retrieval Approach
@@ -59,11 +60,11 @@ The domain for this project is an unofficial Amherst College student survival gu
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
-
+all-MiniLM-L6-v2 from sentence-transformers
 **Top-k:**
-
+4
 **Production tradeoff reflection:**
-
+I would consider using a larger + higher-accuracy embedding model if cost was not a constraint. I would weigh tradeoffs such as longer context length, better handling of informal student language, stronger performance on domain-specific campus terms, multilingual support, latency, and infrastructure cost. A larger model might improve retrieval quality, but it could also make the system slower and more expensive to run.
 ---
 
 ## Evaluation Plan
@@ -75,11 +76,11 @@ The domain for this project is an unofficial Amherst College student survival gu
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | What academic support resources does Amherst list for students? | Should cite Amherst’s academic support page and mention the writing center, the strategic learning center, Frost Library resources, etc  |
+| 2 | What do students say about Amherst social life or campus community? | Students report that Amherst's social life is heavily clique-based, with limited interaction between groups, occasional feelings of isolation, and a strong work-hard/play-hard culture centered around parties and campus traditions.|
+| 3 | What advice do students give incoming, first-year students at Amherst? | They recommend that first-years embrace new experiences, take advantage of campus resources, make diverse social connections, communicate with professors, and get involved in the campus community.|
+| 4 | How do meal plans work at the Amherst College dining hall? | First-year students receive the Unlimited meal plan, which allows unlimited Dining Hall access using an Amherst ID card or mobile app. Meal swipes can also be used at Keefe Grab and Go, and students can manage balances through the Mammoth Mobile App.|
+| 5 | What do students say about things to do in Amherst town? | Students say Amherst offers lots of restaurants, cafes, bars, shopping areas, outdoor activities, and campus events. Popular places to hang/visit include downtown Amherst, Route 9, Northampton, local hiking trails, Puffer's Pond, and the Norwottuck Rail Trail. |
 
 ---
 
@@ -89,9 +90,9 @@ The domain for this project is an unofficial Amherst College student survival gu
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1. The sources mix official Amherst information with subjective student opinions. The system may accidentally present Reddit, blog, or Niche comments as official facts.
 
-2.
+2.Some documents may be noisy, broad, or inconsistent. For example, “campus life” appears across many pages, so retrieval could return off-topic chunks unless chunks are focused and metadata is preserved.
 
 ---
 
@@ -104,6 +105,9 @@ The domain for this project is an unofficial Amherst College student survival gu
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
 
 ---
+
+![Mermaid diagram of pipeline](p1_pipeline.png)
+
 
 ## AI Tool Plan
 
@@ -118,7 +122,10 @@ The domain for this project is an unofficial Amherst College student survival gu
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
+I plan to give Claude my Documents section, Chunking Strategy section, and Milestone 3 requirements and I expect it to produce code that loads text from my URLs/local files, cleans the text, preserves source metadata, and splits each document into 600–800 character chunks and 100 characters of overlap. I will verify the output by printing sample chunks and checking that each chunk has the correct source title, URL, and chunk index.
 
 **Milestone 4 — Embedding and retrieval:**
+I plan to give Claude my retrieval requirements and ask it to generate code that creates embeddings, stores them, and retrieves the top 4 most relevant chunks for a query. I'll verify that it's working by running my evaluation questions and seeing whether the retrieved chunks come from the sources I would expect.
 
 **Milestone 5 — Generation and interface:**
+I'll provide my architecture diagram and evaluation plan to Claude, and ask it to generate code that takes a user's question, retrieves relevant chunks, and uses them to generate an answer with source citations. I'll check that the answers are actually supported by the retrieved documents and that the citations point to the correct sources.
